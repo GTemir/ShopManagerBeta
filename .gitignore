@@ -1,0 +1,14 @@
+products.db
+__pycache__/
+*.pyc
+*.pyo
+app/static/uploads/
+static/uploads/
+venv/
+.env
+.vscode/
+.idea/
+*.log
+*.tmp
+*.swp
+*.pid

@@ -36,7 +36,13 @@ def index():
         flash('Product added successfully!')
         return redirect(url_for('index'))
 
-    products = Product.query.all()
+    # === 🔍 Обработка поиска ===
+    search_query = request.args.get('search', '').strip()
+    if search_query:
+        products = Product.query.filter(Product.name.ilike(f'%{search_query}%')).all()
+    else:
+        products = Product.query.all()
+
     return render_template('index.html', products=products)
 
 @app.route('/delete', methods=['POST'])
